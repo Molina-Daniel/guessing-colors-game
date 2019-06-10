@@ -1,13 +1,18 @@
-let colors = []
-
+let colors = [];
+let pickedColor = null;
+let colorDisplay = document.getElementById("colorDisplay")
 let squares = document.querySelectorAll(".square");
 
-for (let i = 0; i < squares.length; i++) {
-  squares[i].style.backgroundColor = colors[i];
+init();
 
+function init() {
+  pickRandomColors();
+  displayColors();
+  pickedColor = colors[Math.floor(Math.random() * 7)];
+  colorDisplay.innerHTML = pickedColor;
 }
 
-function pickRandomColor() {
+function pickRandomColors() {
   for (let i = 0; i < 6; i++) {
     let r = Math.floor(Math.random() * 256)
     let g = Math.floor(Math.random() * 256)
@@ -17,5 +22,10 @@ function pickRandomColor() {
     colors.push(randomColor);
   }
 }
-pickRandomColor()
 console.log(colors);
+
+function displayColors() {
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+  }
+}
