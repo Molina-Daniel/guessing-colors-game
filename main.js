@@ -4,6 +4,7 @@ let colorDisplay = document.getElementById("colorDisplay")
 let squares = document.querySelectorAll(".square");
 
 init();
+console.log(colors);
 
 function init() {
   pickRandomColors();
@@ -13,16 +14,23 @@ function init() {
 }
 
 function pickRandomColors() {
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < squares.length; i++) {
     let r = Math.floor(Math.random() * 256)
     let g = Math.floor(Math.random() * 256)
     let b = Math.floor(Math.random() * 256)
     let randomColor = "rgb(" + r + ", " + g + ", " + b + ")"
-
     colors.push(randomColor);
+
+    squares[i].addEventListener("click", function () {
+      let clickedColor = this.style.backgroundColor
+      if (clickedColor == pickedColor) {
+        console.log("Correct!!");
+      } else {
+        console.log("Fail!!");
+      }
+    })
   }
 }
-console.log(colors);
 
 function displayColors() {
   for (let i = 0; i < squares.length; i++) {
