@@ -17,6 +17,10 @@ h1, h2 {
   text-align: center;
 }
 
+.selected {
+  background-color: green;
+}
+
 .square {
   width: 30%;
   background-color: black;
@@ -24,3 +28,4 @@ h1, h2 {
   margin: 1.66%;
   float: left;
 }
+

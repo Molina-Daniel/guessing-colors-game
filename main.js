@@ -1,14 +1,49 @@
-let colors = generateRandomColors(6);
+let numOfSquares = 6;
+let colors = generateRandomColors(numOfSquares);
 let pickedColor = pickColor();
 let colorDisplay = document.getElementById("colorDisplay")
 let squares = document.querySelectorAll(".square");
 let resultDisplay = document.getElementById("result");
 let resetButton = document.getElementById("reset");
 let header = document.getElementById("header");
+let easyBtn = document.getElementById("easyBtn");
+let hardBtn = document.getElementById("hardBtn");
+
+easyBtn.addEventListener("click", function () {
+  hardBtn.classList.remove("selected");
+  easyBtn.classList.add("selected");
+  numOfSquares = 3;
+  colors = generateRandomColors(numOfSquares);
+  pickedColor = pickColor();
+  colorDisplay.innerHTML = pickedColor;
+  for (let i = 0; i < squares.length; i++) {
+    const square = squares[i];
+    if (colors[i]) {
+      square.style.backgroundColor = colors[i];
+    } else {
+      square.style.display = "none";
+    }
+  }
+})
+hardBtn.addEventListener("click", function () {
+  easyBtn.classList.remove("selected");
+  hardBtn.classList.add("selected");
+  numOfSquares = 6;
+  colors = generateRandomColors(numOfSquares);
+  pickedColor = pickColor();
+  colorDisplay.innerHTML = pickedColor;
+  for (let i = 0; i < squares.length; i++) {
+    const square = squares[i];
+    if (colors[i]) {
+      square.style.backgroundColor = colors[i];
+      square.style.display = "block";
+    }
+  }
+})
 
 resetButton.addEventListener("click", function () {
   //generate all new colors
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numOfSquares);
   //pick a new random color from array
   pickedColor = pickColor();
   //change colorDisplay to match picked Color
@@ -18,7 +53,9 @@ resetButton.addEventListener("click", function () {
     const square = squares[i];
     square.style.backgroundColor = colors[i];
   }
+
   header.style.backgroundColor = "#232323";
+  resetButton.innerHTML = "New Colors";
 })
 
 console.log(colors);
