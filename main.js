@@ -16,6 +16,8 @@ easyBtn.addEventListener("click", function () {
   colors = generateRandomColors(numOfSquares);
   pickedColor = pickColor();
   colorDisplay.innerHTML = pickedColor;
+  header.style.backgroundColor = "steelblue";
+  resultDisplay.innerHTML = "";
   for (let i = 0; i < squares.length; i++) {
     const square = squares[i];
     if (colors[i]) {
@@ -32,6 +34,8 @@ hardBtn.addEventListener("click", function () {
   colors = generateRandomColors(numOfSquares);
   pickedColor = pickColor();
   colorDisplay.innerHTML = pickedColor;
+  header.style.backgroundColor = "steelblue";
+  resultDisplay.innerHTML = "";
   for (let i = 0; i < squares.length; i++) {
     const square = squares[i];
     if (colors[i]) {
@@ -54,8 +58,9 @@ resetButton.addEventListener("click", function () {
     square.style.backgroundColor = colors[i];
   }
 
-  header.style.backgroundColor = "steelblue";
   resetButton.innerHTML = "New Colors";
+  header.style.backgroundColor = "steelblue";
+  resultDisplay.innerHTML = "";
 })
 
 console.log(colors);

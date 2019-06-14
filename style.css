@@ -30,10 +30,26 @@ header {
   margin: 0 auto;
 }
 
-#controlMenu {
+.nav {
   background-color: white;
-  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+#controlMenu {
+  width: 600px;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#controlMenu button {
+  background-color: steelblue;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0px;
 }
 
 .selected {
